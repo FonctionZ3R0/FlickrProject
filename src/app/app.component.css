@@ -5,7 +5,7 @@
     left: 0;
     height: 400px;
     width: 100%;
-    box-shadow: 0 0 5px black;
+    box-shadow: 0 0 30px black;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -13,6 +13,7 @@
 
 .search {
     align-self: center;
+    text-align: center;
     width: 50%;
     height: fit-content;
     position: absolute;
@@ -23,11 +24,13 @@
     border-bottom: 8px solid white ;
     border-right: 8px solid black;
     border-left: 8px solid black;
-    box-shadow: 0 0 5px white;
+    box-shadow: 0 0 7px white;
     outline: none;
     font-size: 30px;
     font-weight: bolder;
     transition: all 1s ease;
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 0 0 2px black;
 }
 
 .search:focus{
@@ -59,4 +62,11 @@
     padding-left: 30px;
     opacity: 0;
     transition: all 1s ease;
+}
+
+.images {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: fit-content;
 }

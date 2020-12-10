@@ -6,6 +6,8 @@ import { ImagesearchComponent } from './imagesearch/imagesearch.component';
 import { SwitchpageComponent } from './switchpage/switchpage.component';
 import { PrintimagesComponent } from './printimages/printimages.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +16,8 @@ import { PrintimagesComponent } from './printimages/printimages.component';
     PrintimagesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
