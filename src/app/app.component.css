@@ -69,4 +69,5 @@
     top: 100%;
     width: 100%;
     height: fit-content;
+    column-width: 300px;
 }
