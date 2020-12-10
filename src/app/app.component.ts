@@ -32,12 +32,12 @@ export class AppComponent {
               img.style.boxShadow = "0 0 10px Black";
               img.style.width = "100%";
               img.style.opacity = "0";
-              img.style.transition = "opacity 1s ease";
+              img.style.transition = "opacity 2s ease";
 
               document.querySelector(".images").appendChild(img);
               setTimeout(() => {
                 img.style.opacity = "1";
-              }, 1000);
+              }, 2000);
 
             })
           });
