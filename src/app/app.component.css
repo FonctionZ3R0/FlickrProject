@@ -10,7 +10,20 @@
     justify-content: center;
     text-align: center;
 }
+.header{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: #151515;
+    border-radius: 100px;
+    border-width: 50px;
+    border-color: #151515;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 10px;
+    padding-left: 30px;
 
+}
 .search {
     align-self: center;
     width: 50%;
