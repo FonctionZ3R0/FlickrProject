@@ -13,5 +13,13 @@ export class SwitchpageComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+  prev(){
+    this.page -= 1;
+  }
+
+  next(){
+    this.page += 1;
+  }
 
 }
