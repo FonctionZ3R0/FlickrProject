@@ -19,4 +19,8 @@ export class FlickrgetService {
   getimage(photoID): Observable<any>{
     return this.http.get("https://www.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key="+this.api_key+"&photo_id="+photoID+"&format=json&nojsoncallback=1");
   }
+
+  getSize(photoID): Observable<any>{
+    return this.http.get("https://www.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key="+this.api_key+"&photo_id="+photoID+"&format=json&nojsoncallback=1");
+  }
 }

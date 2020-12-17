@@ -1,7 +1,11 @@
-
-
 <div class="background">
   <input class="search" type="text" (keyup)="onInputChange($event)">
   <H2 class="searchText">Search</H2>
 </div>
-<div class="images"></div>
+<div class="imageScroll">
+  <div class="images"></div>
+</div>
+<div class="blurrer" (click)="onBlurrerClick($event)"></div>
+<div  class="imgContainer">
+  <img data-resise="false" src={{imgOrigin}} alt="Orginal sized image" class="original" (click)="resise($event)">
+</div>

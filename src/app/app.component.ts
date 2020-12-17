@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { EVENT_MANAGER_PLUGINS } from '@angular/platform-browser';
 
 import {FlickrgetService} from "./flickrget.service"
 
@@ -12,6 +11,7 @@ import {FlickrgetService} from "./flickrget.service"
 export class AppComponent {
   title = 'FlickrProject';
   images = [];
+  imgOrigin = "";
   constructor(private flickrget : FlickrgetService) { }
 
   onInputChange(event){
@@ -30,15 +30,38 @@ export class AppComponent {
               let id = data2["photo"]["id"];
               let secret = data2["photo"]["secret"];
 
-              let img = document.createElement("img");
+              var img = document.createElement("img");
 
               img.setAttribute("src","https://live.staticflickr.com/"+server+"/"+id+"_"+secret+".jpg");
               img.style.borderRadius = "12px";
               img.style.margin = "10px";
-              img.style.boxShadow = "0 0 10px Black";
+              img.style.boxShadow = "0 0 10px gray";
               img.style.width = "100%";
               img.style.opacity = "0";
-              img.style.transition = "opacity 2s ease";
+              img.style.transition = "all 0.5s ease";
+              img.style.position = "relative";
+              img.style.bottom = "0px";
+
+              img.addEventListener("pointerover", e => {
+                img.style.bottom = "10px";
+                img.style.boxShadow = "0 10px 10px gray";
+              })
+              img.addEventListener("pointerout", e => {
+                img.style.bottom = "0px";
+                img.style.boxShadow = "0 0 10px gray";
+              })
+              img.addEventListener("click", e => {
+                img.parentElement.style.filter = "blur(10px)";
+                document.querySelector(".blurrer").setAttribute("style","display: block");
+                document.querySelector(".original").setAttribute("style","display: block");
+                this.flickrget.getSize(element["id"]).subscribe(data3 =>{
+                  let Original = data3["sizes"]["size"].pop();
+                  while (Original["media"] == "video"){
+                    Original = data3["sizes"]["size"].pop();
+                  }
+                  this.imgOrigin = Original["source"];
+                })
+              })
 
               document.querySelector(".images").appendChild(img);
               setTimeout(() => {
@@ -50,5 +73,26 @@ export class AppComponent {
         })
       }
     }
+  }
+
+  onBlurrerClick(event){
+    document.querySelector(".images").setAttribute("style","filter: unset")
+    event.target.style.display = "none";
+    event.target.nextElementSibling.firstElementChild.style.display = "none";
+    this.imgOrigin = "";
+
+  }
+
+  resise(event){
+    if (event.target.style.height == "") {
+      event.target.style.height = "unset";
+      event.target.style.maxWidth = "100%";
+      event.target.style.maxHeight = "unset";
+    }else{
+      event.target.style.height = "";
+      event.target.style.maxWidth = "";
+      event.target.style.maxHeight = "";
+    }
+    
   }
 }
