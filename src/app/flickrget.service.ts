@@ -16,7 +16,7 @@ export class FlickrgetService {
     return this.http.get("https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key="+this.api_key+"&text="+text+"&format=json&nojsoncallback=1");
   }
 
-  getimage(text): Observable<any>{
-    return this.http.get("https://www.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key="+this.api_key+"&photo_id="+text+"&format=json&nojsoncallback=1");
+  getimage(photoID): Observable<any>{
+    return this.http.get("https://www.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key="+this.api_key+"&photo_id="+photoID+"&format=json&nojsoncallback=1");
   }
 }
