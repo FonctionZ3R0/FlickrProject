@@ -15,17 +15,23 @@ export class AppComponent {
   constructor(private flickrget : FlickrgetService) { }
 
   onInputChange(event){
-    if (event.target.selectionEnd > 3) {
+    if (event.target.selectionEnd >= 3) {
       if (event.keyCode == 13) {
+        document.querySelector(".images").innerHTML = "";
+        event.target.parentElement.setAttribute("class","background toTop");
+        event.target.nextElementSibling.style.opacity = "0";
+        event.target.blur();
         this.flickrget.getimages(event.target.value.replace(' ','+')).subscribe(data =>{
           this.images = data;
-          event.target.value = '';
           this.images["photos"]["photo"].forEach(element =>{
-            this.flickrget.getimage(element["id"]).subscribe(data =>{
-              let server = data["photo"]["server"];
-              let id = data["photo"]["id"];
-              let secret = data["photo"]["secret"];
+            this.flickrget.getimage(element["id"]).subscribe(data2 =>{
+
+              let server = data2["photo"]["server"];
+              let id = data2["photo"]["id"];
+              let secret = data2["photo"]["secret"];
+
               let img = document.createElement("img");
+
               img.setAttribute("src","https://live.staticflickr.com/"+server+"/"+id+"_"+secret+".jpg");
               img.style.borderRadius = "12px";
               img.style.margin = "10px";

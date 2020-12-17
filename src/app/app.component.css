@@ -1,3 +1,27 @@
+div.toTop {
+    top: 0;
+    height: 100px;
+}
+ 
+.toTop .search{
+    background-color: transparent;
+    border: 0px solid transparent;
+    box-shadow: none;
+    color: white;
+    text-shadow: 0 0 5px white;
+}
+
+.toTop .search:focus{
+    background-color: white;
+    border-top: 8px solid white ;
+    border-bottom: 8px solid white ;
+    border-right: 8px solid black;
+    border-left: 8px solid black;
+    box-shadow: 0 0 7px white;
+    color: black;
+    text-shadow: 0 0 2px black;
+}
+
 .background {
     background-color:  #151515;
     position: absolute;
@@ -9,6 +33,7 @@
     display: flex;
     justify-content: center;
     text-align: center;
+    transition: all 0.8s ease-in-out;
 }
 
 .search {
@@ -66,8 +91,10 @@
 
 .images {
     position: absolute;
-    top: 100%;
-    width: 100%;
+    top: 120px;
+    width: 98%;
     height: fit-content;
     column-width: 300px;
+    column-count: 4;
 }
+
