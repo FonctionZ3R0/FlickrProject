@@ -50,6 +50,7 @@ export class AppComponent {
                 img.style.bottom = "0px";
                 img.style.boxShadow = "0 0 10px gray";
               })
+              
               img.addEventListener("click", e => {
                 img.parentElement.style.filter = "blur(10px)";
                 document.querySelector(".blurrer").setAttribute("style","display: block");
@@ -80,7 +81,6 @@ export class AppComponent {
     event.target.style.display = "none";
     event.target.nextElementSibling.firstElementChild.style.display = "none";
     this.imgOrigin = "";
-
   }
 
   resise(event){
@@ -93,6 +93,5 @@ export class AppComponent {
       event.target.style.maxWidth = "";
       event.target.style.maxHeight = "";
     }
-    
   }
 }
